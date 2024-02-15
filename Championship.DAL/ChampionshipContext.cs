@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Championship.DAL
 {
@@ -8,8 +9,13 @@ namespace Championship.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer
-                (@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Championship;Integrated Security=True;Connect Timeout=30;");
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            var configuration = builder.Build();
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            optionsBuilder.UseSqlServer(connectionString);
         }
     }
 }
