@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Championship.DAL
 {
-    public class ChampionshipContext : DbContext
+    public class Context : DbContext
     {
         public DbSet<Models.Team> Teams { get; set; }
 
