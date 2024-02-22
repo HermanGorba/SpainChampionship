@@ -1,4 +1,5 @@
 ﻿using Championship.DAL.Models;
+using Championship.DAL.Repositories;
 using System.Linq;
 
 namespace Championship.DAL
@@ -77,6 +78,7 @@ namespace Championship.DAL
             _repository.Remove(team);
             return true;
         }
+
         private bool IsUnique(Team team) 
         {
             if (_repository.GetTeams()

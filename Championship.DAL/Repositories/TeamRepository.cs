@@ -1,6 +1,6 @@
 ﻿using Championship.DAL.Models;
 
-namespace Championship.DAL
+namespace Championship.DAL.Repositories
 {
     public class TeamRepository
     {
@@ -9,7 +9,7 @@ namespace Championship.DAL
         {
             _context = context;
         }
-        public void Add(object entity) 
+        public void Add(object entity)
         {
             _context.Add(entity);
             _context.SaveChanges();

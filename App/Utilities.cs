@@ -17,10 +17,16 @@ namespace App
             Console.WriteLine("8. Відображення команди з найбільшою кількістю забитих голів");
             Console.WriteLine("9. Відображення команди з найбільшою кількістю пропущених голів");
             Console.WriteLine("10. Додати нову команду");
-            Console.WriteLine("11. Змінити команду");
+            Console.WriteLine("11. Зміна даних існуючої команди");
             Console.WriteLine("12. Видалити команду");
             Console.WriteLine("13. Відобразити різницю забитих та пропущених голів для кожної команди");
-            Console.WriteLine("14. Відобразити повну інформацію про матч");
+            Console.WriteLine("-14. Відобразити повну інформацію про матч");
+            Console.WriteLine("-15. Покажіть інформацію про матчі у конкретну дату");
+            Console.WriteLine("-16. Покажіть усі матчі конкретної команди");
+            Console.WriteLine("-17. Покажіть усіх гравців, які забили голи у конкретну дату");
+            Console.WriteLine("-18. Додати новий матч");
+            Console.WriteLine("-19. Зміна даних існуючого матчу");
+            Console.WriteLine("-20. Видалити матч");
             Console.WriteLine("0. Вихід");
         }
         public static List<Team> ExecuteRequest(in Service service, in string? choice)
