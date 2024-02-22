@@ -27,6 +27,7 @@ namespace App
             Console.WriteLine("-18. Додати новий матч");
             Console.WriteLine("-19. Зміна даних існуючого матчу");
             Console.WriteLine("-20. Видалити матч");
+
             Console.WriteLine("0. Вихід");
         }
         public static List<Team> ExecuteRequest(in Service service, in string? choice)
