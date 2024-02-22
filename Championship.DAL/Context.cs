@@ -6,7 +6,8 @@ namespace Championship.DAL
     public class Context : DbContext
     {
         public DbSet<Models.Team> Teams { get; set; }
-
+        public DbSet<Models.Player> Players { get; set; }
+        public DbSet<Models.Match> Matches { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new ConfigurationBuilder()

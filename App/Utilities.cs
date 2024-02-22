@@ -1,10 +1,9 @@
-﻿using System.Security.Cryptography;
-using Service = Championship.DAL.Service;
-using Team = Championship.DAL.Models.Team;
+﻿using Championship.DAL;
+using Championship.DAL.Models;
 
 namespace App
 {
-    class Utilities
+    public class Utilities
     {
         public static void PrintMenu()
         {
@@ -20,7 +19,8 @@ namespace App
             Console.WriteLine("10. Додати нову команду");
             Console.WriteLine("11. Змінити команду");
             Console.WriteLine("12. Видалити команду");
-
+            Console.WriteLine("13. Відобразити різницю забитих та пропущених голів для кожної команди");
+            Console.WriteLine("14. Відобразити повну інформацію про матч");
             Console.WriteLine("0. Вихід");
         }
         public static List<Team> ExecuteRequest(in Service service, in string? choice)
@@ -103,6 +103,12 @@ namespace App
                     else
                         Console.WriteLine("Видалення успішно відмінено");
                     break;
+
+                case "13":
+                    foreach (var pair in service.GetGoalDifferenceByTeam())
+                        Console.WriteLine($"{pair.Key.Name} {pair.Value}");
+
+                    break;
             }
 
             return new List<Team>();
@@ -117,16 +123,7 @@ namespace App
         {
             if (team != null)
             {
-                Console.WriteLine
-                    (
-                    $"Name: {team.Name}\n" +
-                    $"Town: {team.Town}\n" +
-                    $"Wins: {team.Wins}\n" +
-                    $"Loses: {team.Loses}\n" +
-                    $"Draws: {team.Draws}\n" +
-                    $"Goals conceded: {team.GoalsConceded}\n" +
-                    $"Goals scored: {team.GoalsScored}\n"
-                    );
+                Console.WriteLine(team.ToString());
             }
         }
         private static Team? ReadTeam()

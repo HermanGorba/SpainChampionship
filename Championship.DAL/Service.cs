@@ -99,6 +99,15 @@ namespace Championship.DAL
                 where team.Name == name && team.Town == town
                 select team).FirstOrDefault();
 
+        public Dictionary<Team, int> GetGoalDifferenceByTeam()
+        {
+            var goalDifferenceMap = new Dictionary<Team, int>();
+
+            foreach (var team in _repository.GetTeams())
+                goalDifferenceMap.Add(team, team.GoalsScored - team.GoalsConceded);
+
+            return goalDifferenceMap;
+        }
 
 
     }
